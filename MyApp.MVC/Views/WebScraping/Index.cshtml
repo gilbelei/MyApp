@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MyApp.MVC.ViewModels.WebScrapingResultViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileExtension)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfLines)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Result)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileExtension)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfLines)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Result)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WebScrapingResultId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WebScrapingResultId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WebScrapingResultId })
+        </td>
+    </tr>
+}
+
+</table>
